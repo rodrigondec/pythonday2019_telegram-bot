@@ -5,11 +5,11 @@ updater = Updater(token='999651935:AAGi5RcJ08qR90m8G-0xXp26q_ZC5P0-CzM', use_con
 
 
 def start(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text='Olá, sou o bot do Python Day 2019!')
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Olá, sou o bot do Python Day 2019!")
 
 
 def hello(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text='world!')
+    context.bot.send_message(chat_id=update.effective_chat.id, text="world!")
 
 
 def echo(update, context):
@@ -17,7 +17,7 @@ def echo(update, context):
 
 
 def caps(update, context):
-    text_caps = ' '.join(context.args).upper()
+    text_caps = " ".join(context.args).upper()
     context.bot.send_message(chat_id=update.effective_chat.id, text=text_caps)
 
 
@@ -33,5 +33,5 @@ updater.dispatcher.add_handler(MessageHandler(Filters.command, unknown))
 
 
 if __name__ == "__main__":
-    print('Meu bot está rodando!')
+    print("Meu bot está rodando!")
     updater.start_polling()

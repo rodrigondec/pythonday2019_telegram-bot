@@ -1,6 +1,9 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 
+from messages import PROGRAMACAO, programacao as _programacao
+
+
 updater = Updater(token='999651935:AAGi5RcJ08qR90m8G-0xXp26q_ZC5P0-CzM', use_context=True)
 
 
@@ -25,10 +28,16 @@ def unknown(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="Não reconheci esse comando 😅")
 
 
+def programacao(update, context):
+    print(PROGRAMACAO)
+    context.bot.send_message(chat_it=update.effective_chat.id, text=f"{_programacao}")
+
+
 updater.dispatcher.add_handler(CommandHandler('start', start))
 updater.dispatcher.add_handler(CommandHandler('hello', hello))
-updater.dispatcher.add_handler(MessageHandler(Filters.text, echo))
 updater.dispatcher.add_handler(CommandHandler('caps', caps))
+updater.dispatcher.add_handler(CommandHandler('programacao', programacao))
+updater.dispatcher.add_handler(MessageHandler(Filters.text, echo))
 updater.dispatcher.add_handler(MessageHandler(Filters.command, unknown))
 
 
